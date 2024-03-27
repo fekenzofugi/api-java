@@ -38,6 +38,7 @@ public class UserController {
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable Long id) {
         try {
+            userRepository.findById(id);
             userRepository.deleteById(id);
             return "User deleted successfully";
         } catch (Exception e) {
